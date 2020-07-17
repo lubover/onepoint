@@ -21,12 +21,12 @@ module.exports = async (req, res) => {
         res.write("error");
         res.end();
     }
-}
+};
 
 async function readConfig() {
     return JSON.parse(fs.readFileSync(path.resolve(__dirname, './config.json'), 'utf8'));
 }
 
 async function writeConfig(config) {
-    await axios.default.post("https://point.onesrc.cn/github/nowsh-deploy", { token: config.G_CONFIG['x-nowsh-token'], conifg_json: JSON.stringify(config, null, 2) });
+    await axios.default.post("https://point.onesrc.cn/github/nowsh-deploy", { token: config.G_CONFIG['x-nowsh-token'], config_json: JSON.stringify(config, null, 2) });
 }
